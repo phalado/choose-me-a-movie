@@ -1,25 +1,35 @@
 import React from "react";
-import { Text, TouchableOpacity, View } from "react-native";
+import { Alert, Text, TouchableOpacity, View } from "react-native";
 import { MovieInterface } from "../interfaces/MovieListInterface";
 import styles from '../styles/MovieListItem'
 
-const MovieListItem = (props: { movie: MovieInterface }) => {
-  const { movie } = props;
+const MovieListItem = (props: {
+  movie: MovieInterface
+  index: number
+  removeMovieFromList: (id: number) => void
+  title?: boolean
+}) => {
+  const { movie, index, removeMovieFromList, title } = props;
+  let tableTextStyle = title ? styles.tableTextTitle : styles.tableText
 
   return (
     <View style={styles.tableRow}>
       <View style={{ width: '60%' }}>
-        <Text style={styles.tableText}>{movie.title}</Text>
+        <Text style={tableTextStyle}>{movie.title}</Text>
       </View>
-      <View style={{ width: '30%' }}>
-        <Text style={styles.tableText}>{movie.added}</Text>
+      <View style={{ width: title ? '40%' : '30%' }}>
+        <Text style={tableTextStyle}>{movie.added}</Text>
       </View>
-      <TouchableOpacity
-        onPress={() => console.log(movie.title)}
+      {!title && <TouchableOpacity
+        onPress={() => {
+          Alert.alert('Certeza?', 'Excluir filme da lista?', [
+            { text: 'Sim', onPress: () => removeMovieFromList(index), style: 'cancel' },
+          ]);
+        }}
         style={styles.deleteButton}
       >
-        <Text style={{ textAlign: 'center' }}>X</Text>
-      </TouchableOpacity>
+        <Text style={{ textAlign: 'center', color: 'red' }}>X</Text>
+      </TouchableOpacity>}
     </View>
   )
 }

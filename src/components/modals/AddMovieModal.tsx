@@ -1,9 +1,8 @@
-import React, { useCallback, useEffect, useState } from "react";
-import { BackHandler, Text, TextInput, View } from "react-native";
+import React, { useEffect, useState } from "react";
+import { Text, TextInput, View } from "react-native";
 import Modal from 'react-native-modal';
 import styles from '../../styles/Modals'
 import CustomButton from "../CustomButton";
-import { useFocusEffect } from "@react-navigation/native";
 
 const AddMovieModal = (props: {
   visible: boolean
@@ -16,20 +15,6 @@ const AddMovieModal = (props: {
   const [buttonDisabled, setButtonDisabled] = useState(true)
 
   useEffect(() => setButtonDisabled(movieList.includes(title) || title === ''), [title])
-
-  useFocusEffect(
-    useCallback(() => {
-      const onBackPress = () => {
-        setVisible(false)
-        setTitle('')
-        return true
-      };
-
-      BackHandler.addEventListener('hardwareBackPress', onBackPress);
-
-      return () => BackHandler.removeEventListener('hardwareBackPress', onBackPress);
-    }, [])
-  )
 
   return(
     <Modal isVisible={visible} style={{ alignItems: 'center' }}>

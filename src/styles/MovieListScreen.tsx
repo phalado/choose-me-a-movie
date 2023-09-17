@@ -22,6 +22,13 @@ const MovieListStyles = StyleSheet.create({
     alignSelf: 'stretch',
     alignItems: 'center',
   },
+  screenTitle: {
+    height: '6%',
+    marginTop: 10,
+    fontSize: 30,
+    justifyContent: 'center',
+    alignSelf: 'center'
+  }
 })
 
 export default MovieListStyles;

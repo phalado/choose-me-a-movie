@@ -6,9 +6,4 @@ const mapStateToProps = (state: StateInterface) => ({
   deletedMovies: state.deletedMovies
 })
 
-const mapDispatchToProps = (dispatch: any) => ({
-  // addMovie: (data: { id: number, title: string }) => dispatch(addMovie(data)),
-  // resetMovies: () => dispatch(resetMovies())
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(DeletedMoviesScreen);
+export default connect(mapStateToProps, null)(DeletedMoviesScreen);

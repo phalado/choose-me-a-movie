@@ -9,6 +9,7 @@ import Navigation from './Navigation';
 
 import movieListReducer from './slicers/movieListSlicer';
 import deletedMoviesReducer from './slicers/deletedMoviesSlicer';
+import watchedMoviesReducer from './slicers/watchedMoviesSlicer';
 
 const persistConfig = {
   key: 'root',
@@ -18,7 +19,8 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   movieList: movieListReducer,
-  deletedMovies: deletedMoviesReducer
+  deletedMovies: deletedMoviesReducer,
+  watchedMovies: watchedMoviesReducer
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

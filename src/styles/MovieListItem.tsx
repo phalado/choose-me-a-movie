@@ -14,7 +14,6 @@ const MovieListItemStyles = StyleSheet.create({
   tableRow: {
     flexDirection: 'row',
     height: 40,
-    flex: 1,
     borderWidth: 2,
     borderColor: '#c8e1ff',
     backgroundColor: '#rgba(241, 248, 255, 0.7)',
@@ -23,6 +22,12 @@ const MovieListItemStyles = StyleSheet.create({
     margin: 6,
     alignSelf: 'center',
     flex: 1,
+  },
+  tableTextTitle: {
+    margin: 6,
+    alignSelf: 'center',
+    flex: 1,
+    fontWeight: 'bold',
   },
   deleteButton: {
     alignSelf: 'center',

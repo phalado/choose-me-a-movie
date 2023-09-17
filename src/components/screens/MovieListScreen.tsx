@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from "react";
-import { BackHandler, ScrollView, View } from "react-native";
+import { BackHandler, ScrollView, Text, View } from "react-native";
 import styles from '../../styles/MovieListScreen'
 import { MovieInterface } from "../../interfaces/MovieListInterface";
 import MovieListItem from "../MovieListItem";
@@ -9,11 +9,12 @@ import { useFocusEffect } from "@react-navigation/native";
 
 const MovieListScreen = (props: {
   navigation: any
-  movieList: MovieInterface[],
+  movieList: MovieInterface[]
   addMovie: (title: string) => void
-  resetMovies: () => void
+  removeMovie: (id: number) => void
+  addDeletedMovie: (data: MovieInterface) => void
 }) => {
-  const { navigation, movieList, addMovie } = props;
+  const { navigation, movieList, addMovie, removeMovie, addDeletedMovie } = props;
   const [visibleModal, setVisibleModal] = useState(false)
 
   useFocusEffect(
@@ -26,8 +27,14 @@ const MovieListScreen = (props: {
     }, [])
   )
 
+  const removeMovieFromList = (id: number) => {
+    addDeletedMovie(movieList[id])
+    removeMovie(id);
+  }
+
   return (
     <View style={styles.container}>
+      <Text style={styles.screenTitle}>Lista de filmes</Text>
       <AddMovieModal
         visible={visibleModal}
         setVisible={setVisibleModal}
@@ -42,9 +49,21 @@ const MovieListScreen = (props: {
         />
       </View>
       <View style={styles.tableContainer}>
-        <ScrollView style={{ width: '90%', height: '50%' }}>
-          {movieList.length > 0 && movieList.map((movie: MovieInterface) => (
-            <MovieListItem movie={movie} key={Object.values(movie).join('')} />
+        <ScrollView style={{ width: '100%', height: '50%' }}>
+          <MovieListItem
+            movie={{ title: 'Título', added: 'Data adicionado' }}
+            index={-1}
+            removeMovieFromList={removeMovieFromList}
+            key={-1}
+            title
+          />
+          {movieList.length > 0 && movieList.map((movie: MovieInterface, index: number) => (
+            <MovieListItem
+              movie={movie}
+              index={index}
+              removeMovieFromList={removeMovieFromList}
+              key={JSON.stringify(movie)}
+            />
           ))}
         </ScrollView>
       </View>
