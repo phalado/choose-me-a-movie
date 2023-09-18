@@ -3,7 +3,7 @@ import { StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import InitialScreen from './components/screens/InitialScreen';
+import InitialScreen from './components/containers/InitialScreen';
 import MovieListScreen from './components/containers/MovieListScreen';
 import DeletedMoviesScreen from './components/containers/DeletedMoviesScreen';
 import WatchedMoviesScreen from './components/containers/WatchedMoviesScreen';

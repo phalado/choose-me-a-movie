@@ -13,7 +13,7 @@ const mapStateToProps = (state: StateInterface) => ({
 
 const mapDispatchToProps = (dispatch: any) => ({
   removeMovie: (id: number) => dispatch(removeMovie(id)),
-  addWatchedMovie: (data: MovieInterface) => dispatch(addWatchedMovie(data))
+  addWatchedMovie: (data: MovieInterface) => dispatch(addWatchedMovie(data)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChooseMovieModal);

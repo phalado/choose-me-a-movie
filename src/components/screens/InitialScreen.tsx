@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Alert, Text, View } from 'react-native';
 import CustomButton from "../CustomButton";
-import styles from '../../styles/InitialScreen'
 import ChooseMovieModal from "../containers/ChooseMovieModal";
+import { MovieInterface } from "../../interfaces/MovieListInterface";
+import styles from '../../styles/InitialScreen'
 
-const InitialScreen = (props: { navigation: any }) => {
-  const { navigation } = props;
+const InitialScreen = (props: { navigation: any, movieList: MovieInterface[] }) => {
+  const { navigation, movieList } = props;
   const [visibleModal, setVisibleModal] = useState(false)
 
   return (
@@ -20,8 +21,10 @@ const InitialScreen = (props: { navigation: any }) => {
           onPress={() => {
             Alert.alert('Certeza?', 'Escolher um filme para assistir?', [
               { text: 'Sim', onPress: () => setVisibleModal(true), style: 'cancel' },
+              { text: 'Cancelar', onPress: () => null, style: 'cancel' },
             ]);
           }}
+          disabled={!movieList.length || movieList.length === 0}
         />
 
         <CustomButton

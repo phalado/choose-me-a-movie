@@ -24,6 +24,7 @@ const MovieListItem = (props: {
         onPress={() => {
           Alert.alert('Certeza?', 'Excluir filme da lista?', [
             { text: 'Sim', onPress: () => removeMovieFromList(index), style: 'cancel' },
+            { text: 'Cancelar', onPress: () => null, style: 'cancel' },
           ]);
         }}
         style={styles.deleteButton}

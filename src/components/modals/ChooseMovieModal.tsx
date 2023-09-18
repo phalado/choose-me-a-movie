@@ -14,6 +14,8 @@ const ChooseMovieModal = (props: {
 }) => {
   const { visible, setVisible, movieList, removeMovie, addWatchedMovie } = props;
 
+  if (!visible) return null
+
   const choosenMovieId = Math.floor(Math.random() * movieList.length)
   const choosenMovie = movieList[choosenMovieId]
 

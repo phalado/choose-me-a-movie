@@ -1,13 +1,13 @@
 {
   "expo": {
-    "name": "choose_me_a_movie",
+    "name": "Me escolha um filme",
     "slug": "choose_me_a_movie",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/popcorn.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/movies_splash.jpg",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -21,10 +21,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.phalado.choose_me_a_movie"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "0a518c21-5126-418f-bd72-4bc8187205f9"
+      }
     }
   }
 }
