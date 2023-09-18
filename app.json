@@ -4,13 +4,8 @@
     "slug": "choose_me_a_movie",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/popcorn.png",
+    "icon": "./assets/popcorn2.png",
     "userInterfaceStyle": "light",
-    "splash": {
-      "image": "./assets/movies_splash.jpg",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
     "assetBundlePatterns": [
       "**/*"
     ],
@@ -19,18 +14,19 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/popcorn2.png",
         "backgroundColor": "#ffffff"
       },
       "package": "com.phalado.choose_me_a_movie"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/popcorn2.png"
     },
     "extra": {
       "eas": {
         "projectId": "0a518c21-5126-418f-bd72-4bc8187205f9"
       }
-    }
+    },
+    "owner": "phalado"
   }
 }
